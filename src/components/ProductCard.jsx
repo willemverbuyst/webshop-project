@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import AddRemoveButton from './AddRemoveButton';
+
 import { Card, Badge } from 'react-bootstrap';
 
 export default function ProductCard({ name, image, price, tags, id }) {
@@ -23,6 +25,7 @@ export default function ProductCard({ name, image, price, tags, id }) {
             {tag}
           </Badge>
         ))}
+        <AddRemoveButton />
       </Card.Body>
     </Card>
   );
