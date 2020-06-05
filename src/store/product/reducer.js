@@ -6,6 +6,7 @@ const initialState = {
       tags: ['City', 'Canals'],
       name: 'Explore the beautiful streets of Venice.',
       price: 455,
+      popularity: 5,
     },
     {
       image:
@@ -13,6 +14,7 @@ const initialState = {
       tags: ['Explore', 'Adventure'],
       name: 'Hike to the summit of the Etna Volcano.',
       price: 110,
+      popularity: 3,
     },
     {
       image:
@@ -20,6 +22,7 @@ const initialState = {
       tags: ['Vino', 'Explore'],
       name: 'Wine tasting in acient wine cellars.',
       price: 49,
+      popularity: 2,
     },
     {
       image:
@@ -27,6 +30,7 @@ const initialState = {
       tags: ['Culinary', 'City'],
       name: 'Visit the kitchen of some famous Italian chefs.',
       price: 120,
+      popularity: 4,
     },
     {
       image:
@@ -34,6 +38,7 @@ const initialState = {
       tags: ['Explore', 'Adventure'],
       name: 'Climb the highest snow capped peaks of Italy.',
       price: 330,
+      popularity: 1,
     },
   ],
 };

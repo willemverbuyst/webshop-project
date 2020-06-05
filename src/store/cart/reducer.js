@@ -1,5 +1,5 @@
 const initialState = {
-  product: null,
+  products: ['beer', 'Wine'],
 };
 
 export default function authReducer(state = initialState, action) {
