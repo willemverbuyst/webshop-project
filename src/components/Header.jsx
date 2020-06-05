@@ -6,7 +6,6 @@ import { selectAmountProductsInCart } from '../store/cart/selectors';
 
 export default function Header() {
   const amountInCart = useSelector(selectAmountProductsInCart);
-  console.log(amountInCart);
 
   return (
     <Navbar className="bg-info justify-content-between">

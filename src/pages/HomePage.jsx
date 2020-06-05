@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 
 export default function HomePage() {
-  const products = useSelector(selectProducts).all;
+  const products = useSelector(selectProducts);
   const [sortBy, setSortBy] = useState('price');
 
   const filteredProducts = () => {
@@ -46,10 +46,16 @@ export default function HomePage() {
         <div className="mb-1">Filter by: {renderTags()}</div>
         <div className="mb-1">
           Sort by:{' '}
-          <Button variant="info" onClick={() => setSortBy('price')}>
+          <Button
+            variant={sortBy === 'price' ? 'info' : 'light'}
+            onClick={() => setSortBy('price')}
+          >
             Price
           </Button>{' '}
-          <Button variant="info" onClick={() => setSortBy('popularity')}>
+          <Button
+            variant={sortBy === 'popularity' ? 'info' : 'light'}
+            onClick={() => setSortBy('popularity')}
+          >
             Popularity
           </Button>
         </div>
