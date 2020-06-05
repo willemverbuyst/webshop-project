@@ -1,5 +1,8 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function ProductDetailsPage() {
-  return <div>ProductDetailsPage</div>;
+  const { id } = useParams();
+
+  return <div>ProductDetailsPage for {id}</div>;
 }

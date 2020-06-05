@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { Card, Badge } from 'react-bootstrap';
 
-export default function ProductCard({ name, image, price, tags }) {
+export default function ProductCard({ name, image, price, tags, id }) {
   return (
     <Card style={{ width: '16rem', margin: '1rem' }}>
       <Card.Img
@@ -10,7 +12,11 @@ export default function ProductCard({ name, image, price, tags }) {
         src={image}
       />
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <Link to={`/products/${id}`}>
+          {' '}
+          <Card.Title>{name}</Card.Title>
+        </Link>
+
         <Card.Text>Price: €{price},-</Card.Text>
         {tags.map((tag, i) => (
           <Badge variant="secondary" className="ml-1" key={i}>

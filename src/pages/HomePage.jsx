@@ -60,13 +60,14 @@ export default function HomePage() {
           flexWrap: 'wrap',
         }}
       >
-        {renderSortedProducts().map(({ name, image, price, tags }, i) => (
+        {renderSortedProducts().map(({ name, image, price, tags, id }, i) => (
           <ProductCard
             key={i}
             name={name}
             image={image}
             price={price}
             tags={tags}
+            id={id}
           />
         ))}
       </div>
