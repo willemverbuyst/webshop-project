@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <Navbar className="bg-info justify-content-between">
       <Navbar.Brand href="/" className="text-white">
-        Awesome Webshop
+        Italian trips
       </Navbar.Brand>
       <div className="text-white">x products in cart</div>
     </Navbar>

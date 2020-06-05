@@ -3,7 +3,7 @@ import productReducer from './product/reducer';
 import cartReducer from './cart/reducer';
 
 const rootReducer = combineReducers({
-  product: productReducer,
+  products: productReducer,
   cart: cartReducer,
 });
 
