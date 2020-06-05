@@ -43,6 +43,7 @@ export default function authReducer(state = initialState, action) {
           products: newArray,
         };
       }
+      return state;
     }
     default:
       return state;

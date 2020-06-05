@@ -6,7 +6,6 @@ export function addToCart(id) {
 }
 
 export function removeFromCart(id) {
-  console.log(id, '- 1');
   return {
     type: 'REMOVE_FROM_CART',
     payload: id,

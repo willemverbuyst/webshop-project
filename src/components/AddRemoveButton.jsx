@@ -1,25 +1,24 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { addToCart, removeFromCart } from '../store/cart/actions';
+import { selectProducts } from '../store/cart/selectors';
 
 import styled from 'styled-components';
 
 export default function AddRemoveButton({ id }) {
   const dispatch = useDispatch();
-  const innerTextButton = 'add to cart';
-
-  // const addToCart = (id) => {
-  //   console.log(id, 'plus 1');
-  // };
-  // const removeFromCart = (id) => {
-  //   console.log(id, 'minus 1');
-  // };
+  const productData = useSelector(selectProducts);
 
   return (
     <AddRemoveLine>
       <Span onClick={() => dispatch(removeFromCart(id))}>-</Span>
-      {innerTextButton}
+      {productData.find((product) => product.id === id)
+        ? `${productData
+            .filter((product) => product.id === id)
+            .map((product) => product.amount)} in cart`
+        : 'add to cart'}
+
       <Span onClick={() => dispatch(addToCart(id))}>+</Span>
     </AddRemoveLine>
   );
