@@ -25,7 +25,7 @@ export default function ProductCard({ name, image, price, tags, id }) {
             {tag}
           </Badge>
         ))}
-        <AddRemoveButton />
+        <AddRemoveButton id={id} />
       </Card.Body>
     </Card>
   );
