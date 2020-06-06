@@ -2,6 +2,6 @@ export const selectAmountProductsInCart = (state) => {
   return state.cart.products.length;
 };
 
-export const selectProducts = (state) => {
+export const selectedProducts = (state) => {
   return state.cart.products;
 };

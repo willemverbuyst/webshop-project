@@ -2,13 +2,13 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { addToCart, removeFromCart } from '../store/cart/actions';
-import { selectProducts } from '../store/cart/selectors';
+import { selectedProducts } from '../store/cart/selectors';
 
 import styled from 'styled-components';
 
 export default function AddRemoveButton({ id }) {
   const dispatch = useDispatch();
-  const productData = useSelector(selectProducts);
+  const productData = useSelector(selectedProducts);
 
   const renderMinPlus = () => {
     return (
