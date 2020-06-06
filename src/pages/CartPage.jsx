@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Button from 'react-bootstrap/Button';
 import MinPlusOnly from '../components/MinPlusOnly';
 import { emptyCart } from '../store/cart/actions';
 import { cartDetails, totalCost } from '../store/selectors';
+
+import Button from 'react-bootstrap/Button';
 
 export default function CartPage() {
   const dispatch = useDispatch();

@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import AddRemoveButton from '../components/AddRemoveButton';
-
 import { selectProducts } from '../store/product/selectors';
 
 import Badge from 'react-bootstrap/Badge';

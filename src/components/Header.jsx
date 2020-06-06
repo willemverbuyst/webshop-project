@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
 import { useSelector } from 'react-redux';
+
+import Navbar from 'react-bootstrap/Navbar';
 
 import { selectAmountProductsInCart } from '../store/cart/selectors';
 

@@ -22,7 +22,7 @@ const initialState = {
       id: 3,
       image:
         'https://images.pexels.com/photos/2440524/pexels-photo-2440524.jpeg?cs=srgb&dl=clear-wine-glass-on-a-barrel-2440524.jpg&fm=jpg',
-      tags: ['Vino', 'Explore'],
+      tags: ['Vino'],
       name: 'Wine tasting in ancient wine cellars.',
       price: 49,
       popularity: 2,
