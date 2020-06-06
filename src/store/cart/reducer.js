@@ -30,21 +30,25 @@ export default function authReducer(state = initialState, action) {
         (product) => product.id === action.payload
       );
       if (indexOfProduct !== -1) {
-        const newArray = [...state.products];
-        newArray[indexOfProduct] = {
-          ...newArray[indexOfProduct],
-          amount:
-            newArray[indexOfProduct].amount > 0
-              ? newArray[indexOfProduct].amount - 1
-              : 0,
-        };
-        return {
-          ...state,
-          products: newArray,
-        };
+        if (state.products[indexOfProduct].amount === 1) {
+          const newArray = [...state.products];
+          newArray.splice(indexOfProduct, 1);
+          return { ...state, products: newArray };
+        } else {
+          const newArray = [...state.products];
+          newArray[indexOfProduct] = {
+            ...newArray[indexOfProduct],
+            amount: newArray[indexOfProduct].amount - 1,
+          };
+          return {
+            ...state,
+            products: newArray,
+          };
+        }
       }
       return state;
     }
+
     default:
       return state;
   }
