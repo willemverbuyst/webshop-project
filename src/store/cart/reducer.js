@@ -48,6 +48,9 @@ export default function authReducer(state = initialState, action) {
       }
       return state;
     }
+    case 'EMPTY_CART': {
+      return initialState;
+    }
     default:
       return state;
   }

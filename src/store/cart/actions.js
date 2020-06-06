@@ -11,3 +11,9 @@ export function removeFromCart(id) {
     payload: id,
   };
 }
+
+export function emptyCart() {
+  return {
+    type: 'EMPTY_CART',
+  };
+}
