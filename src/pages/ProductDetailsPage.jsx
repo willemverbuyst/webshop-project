@@ -11,7 +11,7 @@ import Badge from 'react-bootstrap/Badge';
 export default function ProductDetailsPage() {
   const { id } = useParams();
   const products = useSelector(selectProducts);
-  const product = products.filter((product) => product.id === id * 1)[0];
+  const product = products.find((product) => product.id === id * 1);
 
   return (
     <div style={{ textAlign: 'center' }}>

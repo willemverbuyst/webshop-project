@@ -7,6 +7,7 @@ export const cartDetails = (state) => {
   } else {
     return productsInCart.map((product) => {
       return {
+        id: product.id,
         name: allProducts
           .filter((prod) => prod.id === product.id)
           .map((p) => p.name),

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from 'react-bootstrap/Button';
+import MinPlusOnly from '../components/MinPlusOnly';
 import { emptyCart } from '../store/cart/actions';
 import { cartDetails, totalCost } from '../store/selectors';
 
@@ -14,9 +15,9 @@ export default function CartPage() {
     return cart === 'nothing' ? (
       <p>You have added nothing to your cart yet.</p>
     ) : (
-      cart.map(({ name, amount, price, total }, i) => (
+      cart.map(({ name, amount, price, total, id }, i) => (
         <p key={i}>
-          {name} {amount}x €{price},- €{total},-
+          {name} <MinPlusOnly id={id} /> {amount}x €{price},- €{total},-
         </p>
       ))
     );
