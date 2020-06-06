@@ -12,13 +12,17 @@ export default function AddRemoveButton({ id }) {
 
   return (
     <AddRemoveLine>
-      <Span onClick={() => dispatch(removeFromCart(id))}>-</Span>
-      {productData.find((product) => product.id === id)
-        ? `${productData
+      {productData.find((product) => product.id === id) ? (
+        <>
+          <Span onClick={() => dispatch(removeFromCart(id))}>-</Span>
+          {`${productData
             .filter((product) => product.id === id)
-            .map((product) => product.amount)} in cart`
-        : 'add to cart'}
-
+            .map((product) => product.amount)}
+        in cart`}
+        </>
+      ) : (
+        'add to cart'
+      )}
       <Span onClick={() => dispatch(addToCart(id))}>+</Span>
     </AddRemoveLine>
   );
