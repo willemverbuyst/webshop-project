@@ -6,6 +6,7 @@ import AddRemoveButton from './AddRemoveButton';
 import { Card, Badge } from 'react-bootstrap';
 
 export default function ProductCard({ name, image, price, tags, id }) {
+  console.log(id);
   return (
     <Card style={{ width: '16rem', margin: '1rem' }}>
       <Card.Img

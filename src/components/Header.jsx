@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import { useSelector } from 'react-redux';
 
@@ -9,10 +10,15 @@ export default function Header() {
 
   return (
     <Navbar className="bg-info justify-content-between">
-      <Navbar.Brand href="/" className="text-white">
+      <Link to="/" className="text-white">
         Italian trips
-      </Navbar.Brand>
-      <div className="text-white">{amountInCart} products in cart</div>
+      </Link>
+      <div className="text-white">
+        {amountInCart} products in{' '}
+        <Link to="/cart" className="text-white">
+          cart
+        </Link>
+      </div>
     </Navbar>
   );
 }

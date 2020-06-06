@@ -10,28 +10,42 @@ export default function AddRemoveButton({ id }) {
   const dispatch = useDispatch();
   const productData = useSelector(selectProducts);
 
-  return (
-    <AddRemoveLine>
-      {productData.find((product) => product.id === id) ? (
-        <>
-          <Span onClick={() => dispatch(removeFromCart(id))}>-</Span>
-          {`${productData
-            .filter((product) => product.id === id)
-            .map((product) => product.amount)}
+  const renderMinPlus = () => {
+    return (
+      <>
+        <Span onClick={() => dispatch(removeFromCart(id))}>-</Span>
+        {`${productData
+          .filter((product) => product.id === id)
+          .map((product) => product.amount)}
         in cart`}
-        </>
-      ) : (
-        'add to cart'
-      )}
-      <Span onClick={() => dispatch(addToCart(id))}>+</Span>
-    </AddRemoveLine>
+        <Span onClick={() => dispatch(addToCart(id))}>+</Span>
+      </>
+    );
+  };
+
+  const renderPlus = () => {
+    return (
+      <>
+        add to cart
+        <Span onClick={() => dispatch(addToCart(id))}>+</Span>
+      </>
+    );
+  };
+
+  return (
+    <AddOrRemove>
+      {productData.find((product) => product.id === id)
+        ? renderMinPlus()
+        : renderPlus()}
+    </AddOrRemove>
   );
 }
 
 /* STYLING */
-const AddRemoveLine = styled.div`
+const AddOrRemove = styled.div`
   margin-top: 2rem;
-  width: 60%;
+  display: flex;
+  width: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
