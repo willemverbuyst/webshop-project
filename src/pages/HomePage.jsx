@@ -44,6 +44,8 @@ export default function HomePage() {
     );
   };
 
+  /* useEFFect not needed, because we're not using an external api. Data is in the store. */
+
   const sortedProducts = () => {
     return sortBy === 'price'
       ? filterByTag().sort((a, b) => a.price - b.price)
@@ -53,7 +55,13 @@ export default function HomePage() {
   const renderSortButtons = () => {
     return (
       <div className="mb-1">
-        Sort by: <Button onClick={() => setSortBy('price')}>Price</Button>{' '}
+        Sort by:{' '}
+        <Button
+          variant={sortBy === 'price' ? 'info' : 'light'}
+          onClick={() => setSortBy('price')}
+        >
+          Price
+        </Button>{' '}
         <Button
           variant={sortBy === 'popularity' ? 'info' : 'light'}
           onClick={() => setSortBy('popularity')}
