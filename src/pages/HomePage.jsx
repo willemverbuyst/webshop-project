@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import ProductCard from '../components/ProductCard';
 import { selectProducts } from '../store/product/selectors';
@@ -7,6 +7,7 @@ import { selectProducts } from '../store/product/selectors';
 import Button from 'react-bootstrap/Button';
 
 export default function HomePage() {
+  const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   const [sortBy, setSortBy] = useState('price');
   const allTags = [...new Set(products.map((product) => product.tags).flat())];
@@ -44,7 +45,9 @@ export default function HomePage() {
     );
   };
 
-  /* useEFFect not needed, because we're not using an external api. Data is in the store. */
+  useEffect(() => {
+    dispatch(selectProducts);
+  }, [dispatch]);
 
   const sortedProducts = () => {
     return sortBy === 'price'
