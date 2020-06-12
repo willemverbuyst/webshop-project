@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import axios from 'axios';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchAllProducts} from '../store/product/actions'
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    // dispatch(login(email, password));
+    dispatch(fetchAllProducts);
     setEmail('');
     setPassword('');
     callApi();
