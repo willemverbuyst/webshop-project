@@ -3,16 +3,9 @@ import { Link } from 'react-router-dom';
 
 import AddRemoveButton from './AddRemoveButton';
 
-import { Card, Badge } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
-export default function ProductCard({ name, image, price, tags, id }) {
-  const renderTags = () => {
-    return tags.map((tag, i) => (
-      <Badge key={i} variant="secondary" className="ml-1">
-        {tag}
-      </Badge>
-    ));
-  };
+export default function ProductCard({ title, image, price, id }) {
 
   return (
     <Card style={{ width: '16rem', margin: '1rem' }}>
@@ -23,10 +16,9 @@ export default function ProductCard({ name, image, price, tags, id }) {
       />
       <Card.Body>
         <Link to={`/products/${id}`}>
-          <Card.Title>{name}</Card.Title>
+          <Card.Title>{title}</Card.Title>
         </Link>
         <Card.Text>Price: €{price},-</Card.Text>
-        {renderTags()}
         <AddRemoveButton id={id} />
       </Card.Body>
     </Card>
