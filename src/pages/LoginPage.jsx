@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import axios from 'axios';
 // import { useDispatch } from 'react-redux';
 
 export default function LoginPage() {
@@ -13,7 +14,13 @@ export default function LoginPage() {
     // dispatch(login(email, password));
     setEmail('');
     setPassword('');
+    callApi();
   }
+
+  const callApi = async () => {
+    const orders = await axios.get('localhost:4000/orders');
+    console.log(orders);
+  };
 
   return (
     <div style={{ width: '40vw', margin: 'auto' }}>
