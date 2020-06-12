@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { fetchAllProducts} from '../store/product/actions'
-
+import { fetchAllProducts } from '../store/product/actions';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -15,13 +14,7 @@ export default function LoginPage() {
     dispatch(fetchAllProducts);
     setEmail('');
     setPassword('');
-    callApi();
   }
-
-  const callApi = async () => {
-    const orders = await axios.get('localhost:4000/orders');
-    console.log(orders);
-  };
 
   return (
     <div style={{ width: '40vw', margin: 'auto' }}>
