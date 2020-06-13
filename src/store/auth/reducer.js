@@ -1,5 +1,5 @@
 const initialState = {
-  me: 'Willem',
+  me: null,
   accessToken: null,
 };
 
@@ -8,8 +8,8 @@ export default function authReducer(state = initialState, action) {
     case 'LOGIN': {
       return {
         ...state,
-        me: action.payload.profile,
-        accessToken: action.payload.token,
+        me: 'Willem',
+        // accessToken: action.payload.token,
       };
     }
     case 'LOGOUT': {

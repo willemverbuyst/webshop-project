@@ -1,18 +1,18 @@
-import axios from "axios";
-const API_URL = "https://webshop-server.herokuapp.com";
+import axios from 'axios';
+const API_URL = 'https://webshop-server.herokuapp.com';
 
 export function productsFetched(Products) {
-  console.log("this is products", Products);
+  // console.log("this is products", Products);
   return {
-    type: "homePage/productsFetched",
+    type: 'homePage/productsFetched',
     payload: Products,
   };
 }
 
 export function resetState() {
-  console.log("THIS IS A CONSOLE LOG");
+  // console.log("THIS IS A CONSOLE LOG");
   return {
-    type: "foo"
+    type: 'foo',
   };
 }
 

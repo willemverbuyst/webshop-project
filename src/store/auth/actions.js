@@ -12,10 +12,14 @@
 //   };
 // }
 
-// export function logout(dispatch, getState) {
-//   localStorage.removeItem('token');
-//   dispatch({ type: 'LOGOUT' });
-// }
+export function logout(dispatch, getState) {
+  console.log('arrived in actions');
+  // localStorage.removeItem('token');
+  return { type: 'LOGOUT' };
+}
+export function login(dispatch, getState) {
+  return { type: 'LOGIN' };
+}
 
 // export function login(email, password) {
 //   return async function thunk(dispatch, getState) {

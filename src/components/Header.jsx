@@ -1,18 +1,20 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 
 import { selectAmountProductsInCart } from '../store/cart/selectors';
 import { selectAuth } from '../store/auth/selectors';
+import { logout } from '../store/auth/actions';
 
 export default function Header() {
   const amountInCart = useSelector(selectAmountProductsInCart);
   const user = useSelector(selectAuth).me;
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onClick = (goto) => {
     history.push(goto);
@@ -31,7 +33,7 @@ export default function Header() {
       <>
         <h2 className="text-white">Hello {user}</h2>
         <Button
-          // onClick={() => dispatch(logout)}
+          onClick={() => dispatch(logout())}
           variant="light"
           className="ml-3"
         >
