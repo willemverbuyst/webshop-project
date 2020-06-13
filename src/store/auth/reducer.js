@@ -1,5 +1,5 @@
 const initialState = {
-  me: null, // the logged-in user
+  me: 'Willem',
   accessToken: null,
 };
 
