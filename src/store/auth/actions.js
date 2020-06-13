@@ -13,7 +13,7 @@ export function userLoggedIn(email, token) {
 }
 
 export function logout(dispatch, getState) {
-  console.log('arrived in actions');
+  // console.log('arrived in actions');
   // localStorage.removeItem('token');
   return { type: 'LOGOUT' };
 }

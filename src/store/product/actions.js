@@ -20,6 +20,6 @@ export async function fetchAllProducts(dispatch, getState) {
   const response = await axios.get(`${API_URL}/products`);
 
   const Products = response.data;
-  //  console.log("this is the response", response)
+  // console.log('this is the response', response);
   dispatch(productsFetched(Products));
 }

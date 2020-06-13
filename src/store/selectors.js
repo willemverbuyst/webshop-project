@@ -8,9 +8,7 @@ export const cartDetails = (state) => {
     return productsInCart.map((product) => {
       return {
         id: product.id,
-        name: allProducts
-          .filter((prod) => prod.id === product.id)
-          .map((p) => p.name),
+        title: allProducts.find((prod) => prod.id === product.id).title,
         amount: product.amount,
         price: allProducts.find((prod) => prod.id === product.id).price,
         total:

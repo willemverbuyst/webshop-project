@@ -16,9 +16,9 @@ export default function CartPage() {
     return cart === 'nothing' ? (
       <p>You have added nothing to your cart yet.</p>
     ) : (
-      cart.map(({ name, amount, price, total, id }, i) => (
+      cart.map(({ title, amount, price, total, id }, i) => (
         <p key={i}>
-          {name} <MinPlusOnly id={id} /> {amount}x €{price},- €{total},-
+          {title} <MinPlusOnly id={id} /> {amount}x €{price},- €{total},-
         </p>
       ))
     );
