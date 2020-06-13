@@ -6,10 +6,11 @@ const initialState = {
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case 'LOGIN': {
+      console.log(action.payload);
       return {
         ...state,
-        me: 'Willem',
-        // accessToken: action.payload.token,
+        me: action.payload.email,
+        accessToken: action.payload.token,
       };
     }
     case 'LOGOUT': {
