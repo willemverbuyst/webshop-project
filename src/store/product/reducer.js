@@ -3,13 +3,13 @@ const initialState = {
 };
 
 export default function productReducer(state = initialState, action) {
-  console.log("This is the action", action);
+  // console.log("This is the action", action);
   switch (action.type) {
-    case "foo":
-      console.log("WORK.. plz");
+    case 'foo':
+      // console.log("WORK.. plz");
       return initialState;
 
-    case "homePage/productsFetched":
+    case 'homePage/productsFetched':
       return {
         all: [...state.all, ...action.payload.products],
       };

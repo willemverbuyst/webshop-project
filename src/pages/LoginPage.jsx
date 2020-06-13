@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { fetchAllProducts } from '../store/product/actions';
+import { login } from '../store/auth/actions';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -10,8 +10,7 @@ export default function LoginPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    dispatch(fetchAllProducts);
+    dispatch(login(email, password));
     setEmail('');
     setPassword('');
   }

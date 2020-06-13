@@ -1,14 +1,15 @@
 const initialState = {
-  me: null, // the logged-in user
+  me: null,
   accessToken: null,
 };
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case 'LOGIN': {
+      console.log(action.payload);
       return {
         ...state,
-        me: action.payload.profile,
+        me: action.payload.email,
         accessToken: action.payload.token,
       };
     }
