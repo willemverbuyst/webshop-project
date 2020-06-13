@@ -10,22 +10,15 @@ export default function MinPlusOnly({ id }) {
 
   return (
     <MinPlusWrapper>
-      <Span onClick={() => dispatch(removeFromCart(id))}>-</Span>
-      <Span onClick={() => dispatch(addToCart(id))}>+</Span>
+      <div onClick={() => dispatch(removeFromCart(id))}>
+        <i class="fas fa-minus-circle"></i>
+      </div>
+      <div onClick={() => dispatch(addToCart(id))}>
+        <i class="fas fa-plus-circle"></i>
+      </div>
     </MinPlusWrapper>
   );
 }
-
-const Span = styled.button`
-  background-color: #333;
-  color: #fff;
-  height: 1rem;
-  width: 1rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const MinPlusWrapper = styled.div`
   width: 3rem;

@@ -51,7 +51,7 @@ export default function Header() {
       <div className="text-white">
         {amountInCart} products in{' '}
         <Link to="/cart" className="text-white">
-          <i class="fas fa-shopping-cart"></i>
+          <i className="fas fa-shopping-cart"></i>
         </Link>
       </div>
     </Navbar>

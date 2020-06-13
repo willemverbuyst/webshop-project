@@ -13,12 +13,16 @@ export default function AddRemoveButton({ id }) {
   const renderMinPlus = () => {
     return (
       <>
-        <Span onClick={() => dispatch(removeFromCart(id))}>-</Span>
+        <div onClick={() => dispatch(removeFromCart(id))}>
+          <i class="fas fa-minus-circle"></i>
+        </div>
         {`${productData
           .filter((product) => product.id === id)
           .map((product) => product.amount)}
         in cart`}
-        <Span onClick={() => dispatch(addToCart(id))}>+</Span>
+        <div onClick={() => dispatch(addToCart(id))}>
+          <i class="fas fa-plus-circle"></i>
+        </div>
       </>
     );
   };
@@ -27,7 +31,9 @@ export default function AddRemoveButton({ id }) {
     return (
       <>
         add to cart
-        <Span onClick={() => dispatch(addToCart(id))}>+</Span>
+        <div onClick={() => dispatch(addToCart(id))}>
+          <i class="fas fa-plus-circle"></i>
+        </div>
       </>
     );
   };
@@ -48,16 +54,5 @@ const AddOrRemove = styled.div`
   width: 120px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-`;
-
-const Span = styled.button`
-  background-color: #333;
-  color: #fff;
-  height: 1rem;
-  width: 1rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
   align-items: center;
 `;
