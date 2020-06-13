@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
+
+import Btn from './Btn';
 
 import { selectAmountProductsInCart } from '../store/cart/selectors';
 import { selectAuth } from '../store/auth/selectors';
@@ -22,23 +23,21 @@ export default function Header() {
 
   const renderNameOrButton = () => {
     return !user ? (
-      <Button
+      <Btn
         onClick={() => onClick('/login')}
         variant="light"
         className="ml-3"
-      >
-        Login
-      </Button>
+        text="Login"
+      />
     ) : (
       <>
         <h2 className="text-white">Hello {user}</h2>
-        <Button
+        <Btn
           onClick={() => dispatch(logout())}
           variant="light"
           className="ml-3"
-        >
-          Logout
-        </Button>
+          text="Logout"
+        />
       </>
     );
   };
