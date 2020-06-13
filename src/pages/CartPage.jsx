@@ -6,6 +6,7 @@ import { emptyCart } from '../store/cart/actions';
 import { cartDetails, totalCost } from '../store/selectors';
 
 import Button from 'react-bootstrap/Button';
+import styled from 'styled-components';
 
 export default function CartPage() {
   const dispatch = useDispatch();
@@ -17,9 +18,13 @@ export default function CartPage() {
       <p>You have added nothing to your cart yet.</p>
     ) : (
       cart.map(({ title, amount, price, total, id }, i) => (
-        <p key={i}>
-          {title} <MinPlusOnly id={id} /> {amount}x €{price},- €{total},-
-        </p>
+        <Line key={i}>
+          <div>{title}</div>
+          <MinPlusOnly id={id} />
+          <div>{amount}x</div>
+          <div>€{price},-</div>
+          <div>€{total},-</div>
+        </Line>
       ))
     );
   };
@@ -32,7 +37,13 @@ export default function CartPage() {
         Empt Cart
       </Button>
       <Button variant="info">Buy</Button>
-      {total ? <div>€{total},-</div> : ''}
+      {total ? <div>Total: €{total},-</div> : ''}
     </div>
   );
 }
+
+const Line = styled.div`
+  width: 80%;
+  display: grid;
+  grid-template-columns: 350px 50px 100px 100px 100px;
+`;
