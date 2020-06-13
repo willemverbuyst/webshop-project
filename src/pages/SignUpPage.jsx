@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { login } from '../store/auth/actions';
+// import { useDispatch } from 'react-redux';
 
-export default function LoginPage() {
+export default function SignUpPage() {
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
-  const history = useHistory();
+  // const dispatch = useDispatch();
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(login(email, password));
+    // dispatch(login(email, password));
+    setFullName('');
     setEmail('');
     setPassword('');
   }
 
-  const onClick = (goto) => {
-    history.push(goto);
-  };
-
   return (
     <div style={{ width: '40vw', margin: 'auto' }}>
-      <h1>Login</h1>
+      <h1>Sign Up</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
+          <Form.Label>Full name:</Form.Label>
+          <Form.Control
+            type="texts"
+            value={fullName}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <Form.Label>Email:</Form.Label>
           <Form.Control
             type="email"
@@ -43,13 +44,6 @@ export default function LoginPage() {
         </Form.Group>
         <p>
           <Button variant="secondary" type="submit">
-            Login
-          </Button>
-          <Button
-            style={{ marginLeft: '10px' }}
-            variant="info"
-            onClick={() => onClick('/signup')}
-          >
             Sign Up
           </Button>
         </p>
