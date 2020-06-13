@@ -11,10 +11,10 @@ export default function MinPlusOnly({ id }) {
   return (
     <MinPlusWrapper>
       <div onClick={() => dispatch(removeFromCart(id))}>
-        <i class="fas fa-minus-circle"></i>
+        <i className="fas fa-minus-circle"></i>
       </div>
       <div onClick={() => dispatch(addToCart(id))}>
-        <i class="fas fa-plus-circle"></i>
+        <i className="fas fa-plus-circle"></i>
       </div>
     </MinPlusWrapper>
   );

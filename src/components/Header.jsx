@@ -31,7 +31,7 @@ export default function Header() {
       />
     ) : (
       <>
-        <h2 className="text-white">Hello {user}</h2>
+        <h4 className="text-white">Hello {user}</h4>
         <Btn
           onClick={() => dispatch(logout())}
           variant="light"
@@ -43,7 +43,7 @@ export default function Header() {
   };
 
   return (
-    <Navbar className="bg-info justify-content-between">
+    <Navbar fixed="top" className="bg-info justify-content-between">
       <Link to="/" className="text-white">
         Italian trips
       </Link>

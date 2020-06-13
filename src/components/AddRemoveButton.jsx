@@ -14,14 +14,14 @@ export default function AddRemoveButton({ id }) {
     return (
       <>
         <div onClick={() => dispatch(removeFromCart(id))}>
-          <i class="fas fa-minus-circle"></i>
+          <i className="fas fa-minus-circle"></i>
         </div>
         {`${productData
           .filter((product) => product.id === id)
           .map((product) => product.amount)}
         in cart`}
         <div onClick={() => dispatch(addToCart(id))}>
-          <i class="fas fa-plus-circle"></i>
+          <i className="fas fa-plus-circle"></i>
         </div>
       </>
     );
@@ -32,7 +32,7 @@ export default function AddRemoveButton({ id }) {
       <>
         add to cart
         <div onClick={() => dispatch(addToCart(id))}>
-          <i class="fas fa-plus-circle"></i>
+          <i className="fas fa-plus-circle"></i>
         </div>
       </>
     );
