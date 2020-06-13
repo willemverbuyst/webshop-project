@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import ProductCard from '../components/ProductCard';
 import { selectProducts } from '../store/product/selectors';
-import { fetchAllProducts, resetState} from '../store/product/actions'
+import { fetchAllProducts, resetState } from '../store/product/actions';
 
 import Button from 'react-bootstrap/Button';
 
 export default function HomePage() {
   const dispatch = useDispatch();
-  let products = useSelector(selectProducts);
+  const products = useSelector(selectProducts);
   const [sortBy, setSortBy] = useState('price');
   // const allTags = [...new Set(products.map((product) => product.tags).flat())];
 
@@ -48,15 +48,14 @@ export default function HomePage() {
 
   useEffect(() => {
     dispatch(resetState());
-    dispatch(fetchAllProducts)
+    dispatch(fetchAllProducts);
   }, [dispatch]);
-  
 
-  // const sortedProducts = () => {
-  //   return sortBy === 'price'
-  //     ? filterByTag().sort((a, b) => a.price - b.price)
-  //     : filterByTag().sort((a, b) => b.popularity - a.popularity);
-  // };
+  const sortedProducts = () => {
+    return sortBy === 'price'
+      ? products.sort((a, b) => a.price - b.price)
+      : products.sort((a, b) => b.popularity - a.popularity);
+  };
 
   const renderSortButtons = () => {
     return (
@@ -86,7 +85,7 @@ export default function HomePage() {
           flexWrap: 'wrap',
         }}
       >
-        {products.map(({ title, image, price, id }, i) => (
+        {sortedProducts().map(({ title, image, price, id }, i) => (
           <ProductCard
             key={i}
             title={title}
@@ -101,14 +100,15 @@ export default function HomePage() {
 
   return (
     <div style={{ margin: '1rem' }}>
-      {!products ? <p>Loading</p>:
-      <div>
-      {/* {renderTags()} */}
-      {renderSortButtons()}
-      {renderProductCards()}
-      </div>
-      }
-      </div>
-    
+      {!products ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          {/* {renderTags()} */}
+          {renderSortButtons()}
+          {renderProductCards()}
+        </div>
+      )}
+    </div>
   );
 }
