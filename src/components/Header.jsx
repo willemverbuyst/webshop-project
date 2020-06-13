@@ -14,6 +14,9 @@ export default function Header() {
       <Link to="/" className="text-white">
         Italian trips
       </Link>
+      <Link to="/login" className="text-white">
+        Login
+      </Link>
       <div className="text-white">
         {amountInCart} products in{' '}
         <Link to="/cart" className="text-white">
