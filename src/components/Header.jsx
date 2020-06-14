@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -23,22 +24,32 @@ export default function Header() {
 
   const renderNameOrButton = () => {
     return !user ? (
-      <Btn
-        onClick={() => onClick('/login')}
-        variant="light"
-        className="ml-3"
-        text="Login"
-      />
+      <DisplayName>
+        <Btn
+          onClick={() => onClick('/login')}
+          variant="light"
+          className="ml-3"
+          text="Login"
+        />
+        <Btn
+          onClick={() => onClick('/signup')}
+          variant="light"
+          className="ml-3"
+          text="Sign Up"
+        />
+      </DisplayName>
     ) : (
-      <>
-        <h4 className="text-white">Hello {user}</h4>
+      <DisplayName>
+        <div>
+          <h4 className="text-white">Hello {user}</h4>
+        </div>
         <Btn
           onClick={() => dispatch(logout())}
           variant="light"
           className="ml-3"
           text="Logout"
         />
-      </>
+      </DisplayName>
     );
   };
 
@@ -54,15 +65,11 @@ export default function Header() {
           <i className="fas fa-shopping-cart"></i>
         </Link>
       </div>
-      <div>
-        {renderNameOrButton()}
-        <Btn
-          onClick={() => onClick('/signup')}
-          variant="light"
-          className="ml-3"
-          text="Sign Up"
-        />
-      </div>
+      <div>{renderNameOrButton()}</div>
     </Navbar>
   );
 }
+
+const DisplayName = styled.div`
+  display: flex;
+`;

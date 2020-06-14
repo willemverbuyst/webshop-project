@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { signUp } from '../store/auth/actions';
 
 export default function SignUpPage() {
-  const [fullName, setFullName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   function handleSubmit(event) {
     event.preventDefault();
-    // dispatch(login(email, password));
-    setFullName('');
+    dispatch(signUp(name, email, password));
+    setName('');
     setEmail('');
     setPassword('');
   }
@@ -24,8 +26,8 @@ export default function SignUpPage() {
           <Form.Label>Full name:</Form.Label>
           <Form.Control
             type="texts"
-            value={fullName}
-            onChange={(e) => setEmail(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <Form.Label>Email:</Form.Label>
           <Form.Control
