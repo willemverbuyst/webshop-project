@@ -47,12 +47,21 @@ export default function Header() {
       <Link to="/" className="text-white">
         Italian trips
       </Link>
-      {renderNameOrButton()}
+
       <div className="text-white">
         {amountInCart} products in{' '}
         <Link to="/cart" className="text-white">
           <i className="fas fa-shopping-cart"></i>
         </Link>
+      </div>
+      <div>
+        {renderNameOrButton()}
+        <Btn
+          onClick={() => onClick('/signup')}
+          variant="light"
+          className="ml-3"
+          text="Sign Up"
+        />
       </div>
     </Navbar>
   );
