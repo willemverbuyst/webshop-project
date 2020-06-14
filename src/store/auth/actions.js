@@ -2,6 +2,19 @@ import axios from 'axios';
 
 const API_URL = 'https://webshop-server.herokuapp.com';
 
+export function signUp(name, email, password) {
+  return async function thunk(dispatch, getState) {
+    console.log(name, email, password);
+    await axios.post(`${API_URL}/customers`, {
+      name: name,
+      email: email,
+      password: password,
+    });
+
+    dispatch(login(email, password));
+  };
+}
+
 export function userLoggedIn(email, token) {
   return {
     type: 'LOGIN',
