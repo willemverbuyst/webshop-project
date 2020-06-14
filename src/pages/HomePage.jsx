@@ -99,7 +99,7 @@ export default function HomePage() {
   };
 
   return (
-    <div style={{ margin: '4rem' }}>
+    <div style={{ margin: '4rem 0 0 4rem' }}>
       {!products ? (
         <p>Loading...</p>
       ) : (

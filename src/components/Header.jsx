@@ -3,10 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-
 import Navbar from 'react-bootstrap/Navbar';
-
 import Btn from './Btn';
+import DarkModeToggle from './DarkModeToggle';
 
 import { selectAmountProductsInCart } from '../store/cart/selectors';
 import { selectAuth } from '../store/auth/selectors';
@@ -54,7 +53,10 @@ export default function Header() {
   };
 
   return (
-    <Navbar fixed="top" className="bg-info justify-content-between">
+    <Navbar
+      className="bg-info justify-content-between"
+      style={{ height: '4rem' }}
+    >
       <Link to="/" className="text-white">
         Italian trips
       </Link>
@@ -66,6 +68,7 @@ export default function Header() {
         </Link>
       </div>
       <div>{renderNameOrButton()}</div>
+      <DarkModeToggle />
     </Navbar>
   );
 }
