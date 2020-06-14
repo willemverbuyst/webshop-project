@@ -20,7 +20,7 @@ export default function SignUpPage() {
     <div style={{ width: '40vw', margin: 'auto' }}>
       <h1>Sign Up</h1>
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group>
           <Form.Label>Full name:</Form.Label>
           <Form.Control
             type="texts"
@@ -34,7 +34,7 @@ export default function SignUpPage() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group>
           <Form.Label>Password:</Form.Label>
           <Form.Control
             type="password"
